@@ -1,5 +1,7 @@
 package org.lessons.java.shop;
 
+import org.lessons.java.helper.Helper;
+
 public class Prodotto {
 
     private int codice;
@@ -16,7 +18,7 @@ public class Prodotto {
 
 
     public Prodotto(String nome, String descrizione, double prezzo, double iva) {
-        this.codice = generateCode();
+        this.codice = Helper.generateCode();
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -65,29 +67,13 @@ public class Prodotto {
     }
 
 
-    public int generateCode(){
 
-        int min = 10;
-        int max = 10000;
-        int randomNumber = (int)Math.floor(Math.random() * (max - min + 1) + min);
 
-        return randomNumber;
-
-    }
-
-    public double getPrezzoIva(){
-        double prezzoIva;
-        prezzoIva = this.prezzo + (this.prezzo * this.iva);
-
-        return prezzoIva;
-
-    }
 
     public String getNomeCompleto(){
         String nomeCompleto;
 
-        nomeCompleto = getNome() + "-" + getCodice();
+        return nomeCompleto = getNome() + "-" + getCodice();
 
-        return nomeCompleto;
     }
 }
