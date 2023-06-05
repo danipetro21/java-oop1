@@ -5,14 +5,17 @@ public class Prodotto {
     private int codice;
     private String nome;
     private String descrizione;
-    private String prezzo;
-    private String iva;
+    private double prezzo;
+    private double iva;
+
+
+    //costante
 
 
     //costruttore
 
 
-    public Prodotto(int codice, String nome, String descrizione, String prezzo, String iva) {
+    public Prodotto(String nome, String descrizione, double prezzo, double iva) {
         this.codice = codice;
         this.nome = nome;
         this.descrizione = descrizione;
@@ -34,17 +37,17 @@ public class Prodotto {
         return descrizione;
     }
 
-    public String getPrezzo() {
+    public double getPrezzo() {
         return prezzo;
     }
 
-    public String getIva() {
+    public double getIva() {
         return iva;
     }
 
     //setter
 
-    public void setCodice(int codice) {
+    private void setCodice(int codice) {
         this.codice = codice;
     }
 
@@ -56,11 +59,38 @@ public class Prodotto {
         this.descrizione = descrizione;
     }
 
-    public void setPrezzo(String prezzo) {
+    public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
 
-    public void setIva(String iva) {
+    public void setIva(double iva) {
         this.iva = iva;
+    }
+
+
+    public void generateCode(){
+
+        int min = 10;
+        int max = 10000;
+        int randomNumber = (int)Math.floor(Math.random() * (max - min + 1) + min);
+
+        setCodice(randomNumber);
+
+    }
+
+    public double getPrezzoIva(){
+        double prezzoIva;
+        prezzoIva = this.prezzo + (this.prezzo * this.iva);
+
+        return prezzoIva;
+
+    }
+
+    public String getNomeCompleto(){
+        String nomeCompleto;
+
+        nomeCompleto = "Nome del prodotto: " + getNome() + "\n" + "Il codice del prodotto:  " + getCodice();
+
+        return nomeCompleto;
     }
 }
