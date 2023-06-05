@@ -47,9 +47,6 @@ public class Prodotto {
 
     //setter
 
-    private void setCodice(int codice) {
-        this.codice = codice;
-    }
 
     public void setNome(String nome) {
         this.nome = nome;
