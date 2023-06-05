@@ -16,7 +16,7 @@ public class Prodotto {
 
 
     public Prodotto(String nome, String descrizione, double prezzo, double iva) {
-        this.codice = codice;
+        this.codice = generateCode();
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -68,13 +68,13 @@ public class Prodotto {
     }
 
 
-    public void generateCode(){
+    public int generateCode(){
 
         int min = 10;
         int max = 10000;
         int randomNumber = (int)Math.floor(Math.random() * (max - min + 1) + min);
 
-        setCodice(randomNumber);
+        return randomNumber;
 
     }
 
@@ -89,7 +89,7 @@ public class Prodotto {
     public String getNomeCompleto(){
         String nomeCompleto;
 
-        nomeCompleto = "Nome del prodotto: " + getNome() + "\n" + "Il codice del prodotto:  " + getCodice();
+        nomeCompleto = getNome() + "-" + getCodice();
 
         return nomeCompleto;
     }
